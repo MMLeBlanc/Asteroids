@@ -15,3 +15,10 @@ class CircleShape(pygame.sprite.Sprite):
 
     def update(self, dt):
         pass
+
+    def check_collision(self, circle):
+        # circle shapes have positions which are vectors. Distance_to method returns the difference we're looking for.
+        if self.radius + circle.radius < self.position.distance_to(circle.position):
+            return False
+        else:
+            return True
